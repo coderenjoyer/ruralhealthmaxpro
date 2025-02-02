@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-
 const Container = styled.div`
   display: flex;
-  justify-content: center;  
-  align-items: center;    
-  height: 100vh;           
-  width: 100vw;             
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
   background-color: #f4f4f4;
 `;
 
@@ -21,7 +20,7 @@ const LoginBox = styled.div`
 `;
 
 const LogoSection = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 `;
 
 const Logo = styled.img`
@@ -37,16 +36,15 @@ const Title = styled.h2`
   margin-bottom: 5px;
 `;
 
-const SelectGroup = styled.div`
+const InputGroup = styled.div`
   margin-bottom: 20px;
   text-align: left;
 `;
 
 const Label = styled.label`
   margin-bottom: 10px;
-  text-align: center;
   font-size: 16px;
-  color: black; 
+  color: black;
   display: block;
 `;
 
@@ -62,6 +60,16 @@ const Select = styled.select`
 
 const Option = styled.option`
   font-size: 16px;
+`;
+
+const Input = styled.input`
+  width: 95%;
+  padding: 8px;
+  font-size: 16px;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
 `;
 
 const LoginButton = styled.button`
@@ -80,20 +88,16 @@ const LoginButton = styled.button`
 
 const RuralHealthLogin = () => {
   const [userType, setUserType] = useState("");
-
-  const handleLogin = () => {
-    alert(`Logging in as ${userType}`);
-  };
+  const [password, setPassword] = useState("");
 
   return (
     <Container>
       <LoginBox>
         <LogoSection>
-          <Logo src="/RH.png" alt="Rural Health Logo" />
+          <Logo src="/RHnobg.png" alt="Rural Health Logo" />
         </LogoSection>
-
         <Title>SIGN IN</Title>
-        <SelectGroup>
+        <InputGroup>
           <Label htmlFor="user-type">User Type</Label>
           <Select
             id="user-type"
@@ -106,8 +110,18 @@ const RuralHealthLogin = () => {
             <Option value="Doctor-Physician">Doctor - Physician</Option>
             <Option value="Specialist-Dentist">Specialist - Dentist</Option>
           </Select>
-        </SelectGroup>
-        <LoginButton onClick={handleLogin}>Login</LoginButton>
+        </InputGroup>
+        <InputGroup>
+          <Label htmlFor="password">Password</Label>
+          <Input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password"
+          />
+        </InputGroup>
+        <LoginButton>Login</LoginButton>
       </LoginBox>
     </Container>
   );
