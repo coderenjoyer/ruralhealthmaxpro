@@ -25,14 +25,16 @@ const LogoSection = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 200px;
+  width: 300px;
   height: auto;
+  margin-bottom: 5px;
 `;
 
 const Title = styled.h2`
+  margin-top: -35px;
   font-size: 25px;
   color: black;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 `;
 
 const SelectGroup = styled.div`
@@ -87,7 +89,6 @@ const RuralHealthLogin = () => {
     <Container>
       <LoginBox>
         <LogoSection>
-          {/* Reference the RH.png from the public folder */}
           <Logo src="/RH.png" alt="Rural Health Logo" />
         </LogoSection>
 
